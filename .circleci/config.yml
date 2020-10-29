@@ -9,15 +9,14 @@ jobs:
       -  persist_to_workspace:
            root: ~/
            paths:
-             - target/output.txt
-             - build/*
+             - output.txt
   print_output_file:
     docker: 
       -  image: circleci/node:13.8.0
     steps:
       -  attach_workspace:
-           at: ~/target
-      -  run: cat ~/target/output.txt
+           at: ~/
+      -  run: cat ~/output.txt
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"

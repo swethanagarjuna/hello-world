@@ -7,7 +7,7 @@ jobs:
     steps:
       -  run: echo "Hello World" > output.txt
       -  persist_to_workspace:
-           root: /tmp/ws 
+           root: ~/
            paths:
              - target/output.txt
              - build/*
@@ -16,8 +16,8 @@ jobs:
       -  image: circleci/node:13.8.0
     steps:
       -  attach_workspace:
-           at: /tmp/ws
-      -  run: cat output.txt
+           at: ~/target
+      -  run: cat ~/target/output.txt
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
